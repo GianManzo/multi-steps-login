@@ -1,11 +1,11 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 import { FormActions } from '~/enum/enum';
-import { State } from '../types/State';
-import { Action } from '../types/Action';
-import { ContextType } from '../types/ContextType';
-import { FormProviderProps } from '~/types/FormProviderProps';
+import { IState } from '../interfaces/IState';
+import { IAction } from '../interfaces/IAction';
+import { IContextType } from '../interfaces/IContextType';
+import { IFormProviderProps } from '~/interfaces/IFormProviderProps';
 
-const initialData: State = {
+export const initialData: IState = {
   currentStep: 0,
   name: '',
   level: 0,
@@ -13,9 +13,9 @@ const initialData: State = {
   github: '',
 };
 
-export const FormContext = createContext<ContextType | undefined>(undefined);
+export const FormContext = createContext<IContextType | undefined>(undefined);
 
-const formReducer = (state: State, action: Action) => {
+export const formReducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case FormActions.setCurrentStep:
       return { ...state, currentStep: action.payload };
@@ -31,9 +31,16 @@ const formReducer = (state: State, action: Action) => {
       return state;
   }
 };
-
-export const FormProvider = ({ children }: FormProviderProps) => {
+export const FormProvider = ({ children }: IFormProviderProps) => {
   const [state, dispatch] = useReducer(formReducer, initialData);
   const value = { state, dispatch };
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
+};
+
+export const useForm = () => {
+  const context = useContext(FormContext);
+  if (context === undefined) {
+    throw new Error('useForm precisar ser usado dentro do FormProvider');
+  }
+  return context;
 };

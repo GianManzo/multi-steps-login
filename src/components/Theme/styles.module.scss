@@ -1,0 +1,28 @@
+.container {
+  background: #02044a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.area {
+  margin: auto;
+  max-width: 980px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.steps {
+  flex: 1;
+  display: flex;
+}
+
+.sideBar {
+  width: 250px;
+  border-right: 1px solid #16195c;
+}
+
+.page {
+  flex: 1;
+  padding-left: 40px;
+  padding-top: 40px;
+}

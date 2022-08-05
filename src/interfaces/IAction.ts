@@ -1,6 +1,6 @@
 import { FormActions } from '~/enum/enum';
 
-export type Action = {
+export interface IAction {
   type: FormActions;
   payload: any;
-};
+}
