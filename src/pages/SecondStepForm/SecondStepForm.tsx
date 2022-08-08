@@ -61,7 +61,7 @@ export const SecondStepForm = () => {
 
         <SelectOptions
           title='Sou programador experiente'
-          description='2 anos +'
+          description='+2 anos'
           icon='😎'
           selected={state.level === 1}
           onClick={() => setLevel(1)}
