@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Theme } from '~/components/Theme/Theme';
 import { useForm } from '~/contexts/FormContext';
 import { FormActions } from '~/enum/enum';
-import styles from './styles.module.scss';
+import styles from './FirstStepForm.module.scss';
 
 FormActions;
 export const FirstStepForm = () => {
