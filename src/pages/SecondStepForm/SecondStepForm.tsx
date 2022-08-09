@@ -5,7 +5,7 @@ import { SelectOptions } from '~/components/SelectOptions/SelectOptions';
 import { Theme } from '~/components/Theme/Theme';
 import { useForm } from '~/contexts/FormContext';
 import { FormActions } from '~/enum/enum';
-import styles from './styles.module.scss';
+import styles from './SecondStepForm.module.scss';
 
 FormActions;
 export const SecondStepForm = () => {
@@ -66,7 +66,9 @@ export const SecondStepForm = () => {
           selected={state.level === 1}
           onClick={() => setLevel(1)}
         />
-        <Link to='/'>Voltar</Link>
+        <Link className={styles.back} to='/'>
+          Voltar
+        </Link>
         <button onClick={handleNextStep}>Próximo</button>
       </div>
     </Theme>

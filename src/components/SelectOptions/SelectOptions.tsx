@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { IOptions } from '~/interfaces/IOptions';
-import styles from './styles.module.scss';
+import styles from './SelectOptions.module.scss';
 export const SelectOptions = ({ title, description, icon, selected, onClick }: IOptions) => {
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions

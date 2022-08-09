@@ -1,24 +1,15 @@
 import { ChangeEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { info } from 'sass';
 import { Theme } from '~/components/Theme/Theme';
 import { useForm } from '~/contexts/FormContext';
 import { FormActions } from '~/enum/enum';
-import styles from './styles.module.scss';
+import styles from './ThirdStepForm.module.scss';
 
 FormActions;
 export const ThirdStepForm = () => {
   const navigate = useNavigate();
   const { state, dispatch } = useForm();
-
-  const errorMessage = () => {
-    const error = document.querySelector('span');
-    error!.innerText = 'Preencha o campo para prosseguir!';
-    setTimeout(() => {
-      error!.innerText = '';
-    }, 3000);
-  };
 
   const handleNextStep = () => {
     if (state.email !== '' && state.github !== '') console.log(state);
